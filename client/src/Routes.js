@@ -1,39 +1,17 @@
 import React from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom'
-
-
-const ListItemLink = ({ to, name, ...rest }) => (
-  <Route path={to} children={({ match }) => (
-    <li className={match ? 'active' : ''}>
-      <Link to={to} {...rest}>{name}</Link>
-    </li>
-  )}/>
-)
-
-const Home = () => (
-  <div>
-    <h2>Welcome to the homepage</h2>
-  </div>
-)
-
-const About = () => (
-  <div>
-    <h2>Welcome to the about page</h2>
-  </div>
-)
+import WeatherApp from './';
+import About from './common/About';
+import Page404 from './common/404';
+import {Switch, Route} from 'react-router-dom';
 
 const Routes = () => (
-  <BrowserRouter>
-    <div>
-      <ul>
-       <ListItemLink to="/" name="Home"/>
-       <ListItemLink to="/about" name="About"/>
-      </ul> 
-
-      <Route exact path="/" component={Home}/>
-      <Route path="/about" component={About}/>
+    <div className="container">
+         <Switch>
+            <Route name="home" exact path='/' component={WeatherApp} />
+            <Route name="about" exact path='/about' component={About} />
+            <Route path="*" component={Page404}/>
+        </Switch>
     </div>
-  </BrowserRouter>
 )
 
 export default Routes;
