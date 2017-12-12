@@ -7,8 +7,11 @@ class App extends React.Component {
       <nav className="navbar navbar-inverse">
         <div className="container-fluid">
           <ul className="nav navbar-nav">
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
             <li>
-              <Link to='/'>Home</Link>
+              <Link to='/about'>About</Link>
             </li>
           </ul>
         </div>
